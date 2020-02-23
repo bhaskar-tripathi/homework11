@@ -1,0 +1,38 @@
+<div class="main">
+    <div class="row">
+        <div class="leftSection">
+            {{!-- <input value="Test Burger" readonly><button class="myButton">Devour it!!</button> --}}
+            {{#each burgers}}
+            {{#unless devoured}}
+            <ul>
+                <li>
+                    <input value="{{concat @index burger_name}}" readonly>
+                    <button class="myButton devour" data-id={{id}}>Devour it!!</button>
+                </li>
+            </ul>
+
+            {{/unless}}
+            {{/each}}
+
+        </div>
+        <div class=" rightSection">
+            {{!-- <input value="Test Burger Devoured" readonly> --}}
+            {{#each burgers}}
+            {{#if devoured}}
+            <ul>
+                <li>
+                    <input value="{{concat @index burger_name}}" readonly>
+                </li>
+            </ul>
+
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <form class="create-form">
+        <br>
+        <textarea rows="3" cols="25" id="burgerName" name="name"></textarea><br>
+        <button class="myButton" type="submit" value="Submit"> Submit </button>
+    </form>
+</div>
